@@ -23,6 +23,12 @@ const PropertyDetail = () => {
   });
 
   const handleBookClick = () => {
+      // Check if user is logged in
+      if (!user) {
+          addToast("You must be logged in to book a visit.", "info");
+          navigate('/login');
+          return;
+      }
 
       const currentUserRole = user?.data?.role || user?.role;
       
