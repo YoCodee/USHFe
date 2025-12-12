@@ -5,7 +5,6 @@ import Footer from '../components/layout/Footer';
 import PropertyCard from '../components/ui/PropertyCard';
 import Button from '../components/ui/Button';
 
-// Mock data
 const stats = [
   { value: '750+', label: 'Successfully built over 750 unique homes tailored to each client\'s vision.' },
   { value: '200+', label: 'Expertise in building functional and inspiring spaces, from offices to retail.' },
@@ -13,56 +12,7 @@ const stats = [
   { value: '50+', label: 'Honored with numerous industry awards for our innovative .' },
 ];
 
-const properties = [
-  {
-    id: 1,
-    title: 'Georgetown Residence',
-    address: '123 Main St, Georgetown, Penang',
-    price: 'RM750,000',
-    specs: { beds: 3, baths: 2, sqft: '1200 Sqft' },
-    image: '/images/prop3.png'
-  },
-  {
-    id: 2,
-    title: 'Bayan Lepas Condo',
-    address: '456 Ocean View, Bayan Lepas, Penang',
-    price: 'RM520,000',
-    specs: { beds: 2, baths: 2, sqft: '950 Sqft' },
-    image: '/images/prop3.png'
-  },
-  {
-    id: 3,
-    title: 'Tanjung Bungah Villa',
-    address: '789 Hillside Dr, Tanjung Bungah, Penang',
-    price: 'RM1,200,000',
-    specs: { beds: 4, baths: 3, sqft: '2500 Sqft' },
-    image: '/images/prop3.png'
-  },
-  {
-    id: 4,
-    title: 'Butterworth Apartment',
-    address: '101 City Rd, Butterworth, Penang',
-    price: 'RM380,000',
-    specs: { beds: 2, baths: 1, sqft: '700 Sqft' },
-    image: '/images/prop3.png'
-  },
-  {
-    id: 5,
-    title: 'Balik Pulau Farmhouse',
-    address: '202 Green Valley, Balik Pulau, Penang',
-    price: 'RM900,000',
-    specs: { beds: 5, baths: 4, sqft: '3000 Sqft' },
-    image: '/images/prop3.png'
-  },
-  {
-    id: 6,
-    title: 'Seberang Perai Terrace',
-    address: '303 Gardenia Ave, Seberang Perai, Penang',
-    price: 'RM450,000',
-    specs: { beds: 3, baths: 2, sqft: '1100 Sqft' },
-    image: '/images/prop3.png'
-  },
-];
+import { properties } from '../data/properties';
 
 const Landing = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
@@ -94,7 +44,7 @@ const Landing = () => {
         </div>
       </div>
 
-      {/* Overlapping Search Bar */}
+ 
       <div className="relative z-20 -mt-10 px-4">
           <div className="bg-white p-4 rounded-2xl shadow-xl max-w-4xl mx-auto flex items-center">
             <div className="flex-1 flex items-center px-4">

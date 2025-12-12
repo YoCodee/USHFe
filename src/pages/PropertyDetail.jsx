@@ -8,6 +8,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
+import { properties } from '../data/properties';
 
 const PropertyDetail = () => {
   const { id } = useParams();
@@ -23,7 +24,6 @@ const PropertyDetail = () => {
   });
 
   const handleBookClick = () => {
-      // Check if user is logged in
       if (!user) {
           addToast("You must be logged in to book a visit.", "info");
           navigate('/login');
@@ -53,15 +53,18 @@ const PropertyDetail = () => {
   };
 
 
-  const property = {
-    title: 'Luxury Villa in Bali',
-    address: 'Ubud, Gianyar, Bali, Indonesia',
-    price: 'Rp 45.000.000',
-    description: 'Experience the ultimate luxury living in this stunning villa located in the heart of Ubud. Featuring modern amenities, a private pool, and breathtaking views of the rice terraces. Perfect for those seeking tranquility and comfort.',
-    specs: { beds: 4, baths: 3, sqft: '450 Sqft' },
-    images: ['/images/prop1.png', '/images/prop2.png'],
-    features: ['Private Pool', 'Garden', 'Wi-Fi', 'Parking', 'Security', 'Gym Access']
-  };
+  const property = properties.find(p => p.id === parseInt(id));
+
+  if (!property) {
+      return (
+          <div className="font-sans bg-white min-h-screen flex items-center justify-center">
+              <div className="text-center">
+                  <h2 className="text-2xl font-bold text-gray-900">Property Not Found</h2>
+                  <Button onClick={() => navigate('/')} className="mt-4">Go Home</Button>
+              </div>
+          </div>
+      );
+  }
 
   return (
     <div className="font-sans bg-white min-h-screen">
